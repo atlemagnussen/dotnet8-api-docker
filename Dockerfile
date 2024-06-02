@@ -9,7 +9,7 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["TestWebApiNet8Docker/TestWebApiNet8Docker.csproj", "TestWebApiNet8Docker/"]
+COPY ["./TestWebApiNet8Docker/TestWebApiNet8Docker.csproj", "TestWebApiNet8Docker/"]
 RUN dotnet restore "./TestWebApiNet8Docker/TestWebApiNet8Docker.csproj"
 COPY . .
 WORKDIR "/src/TestWebApiNet8Docker"

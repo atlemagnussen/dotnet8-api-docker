@@ -10,4 +10,10 @@ docker build -t test-net8-api .
 
 docker run -p 8080:8080 test-net8-api
 
+## Azure
+
+az login --use-device-code
+az acr login --name
+
+az acr build --registry digilean --image dotnet8-api .
 

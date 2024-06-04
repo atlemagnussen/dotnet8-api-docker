@@ -11,4 +11,10 @@ docker build -f Dockerfile-Api --label digilean-api --tag digilean-api:1.0 .
 
 docker run -p 8080:8080 test-net8-api
 
+## Azure
+
+az login --use-device-code
+az acr login --name
+
+az acr build --registry digilean --image dotnet8-api .
 

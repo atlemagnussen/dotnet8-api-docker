@@ -8,10 +8,10 @@ https://gist.github.com/Athou/022c67de48f1cf6584ce6c194af71a09
 
 docker build -t test-net8-api .
 docker build -f Dockerfile-alpine --label test-net8-api --tag test-net8-api:1.0-alpine .
-docker build -f Dockerfile-self-trim --label test-net8-api --tag test-net8-api:1.1-trim .
+docker build -f Dockerfile-self-trim --label test-net8-api --tag test-net8-api:1.2-trim .
 
 docker run -p 8080:8080 test-net8-api
-docker run -p 8080:8080 test-net8-api:1.1-trim
+docker run -p 8080:8080 test-net8-api:1.2-trim
 
 ## cli
 

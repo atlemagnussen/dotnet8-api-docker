@@ -12,6 +12,11 @@ docker build -f Dockerfile-Server --label digilean-server --tag digilean-server:
 
 docker run -p 8080:8080 test-net8-api
 
+
+## cli
+
+docker exec -it <mycontainer> bash
+
 ## Azure
 
 az login --use-device-code

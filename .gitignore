@@ -1,5 +1,5 @@
 my.tokenstore
-
+publish/
 *.zip
 
 ## Ignore Visual Studio temporary files, build results, and

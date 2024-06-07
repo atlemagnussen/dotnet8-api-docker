@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebApiNet8Docker", "TestWebApiNet8Docker\TestWebApiNet8Docker.csproj", "{DCE762FB-C2BC-4566-9C89-64C63F5FBEDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWebApiNet8Docker", "TestWebApiNet8Docker\TestWebApiNet8Docker.csproj", "{DCE762FB-C2BC-4566-9C89-64C63F5FBEDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsoleAppDocker", "TestConsoleAppDocker\TestConsoleAppDocker.csproj", "{6567B174-B118-4C6B-B257-CBD12B75090D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{DCE762FB-C2BC-4566-9C89-64C63F5FBEDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCE762FB-C2BC-4566-9C89-64C63F5FBEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCE762FB-C2BC-4566-9C89-64C63F5FBEDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6567B174-B118-4C6B-B257-CBD12B75090D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6567B174-B118-4C6B-B257-CBD12B75090D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6567B174-B118-4C6B-B257-CBD12B75090D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6567B174-B118-4C6B-B257-CBD12B75090D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

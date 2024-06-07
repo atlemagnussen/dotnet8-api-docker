@@ -24,6 +24,18 @@ az acr login --name
 
 az acr build --registry digilean --image dotnet8-api .
 
+## optimizing container sizes
+
+Shrinking dotnet container  
+https://benfoster.io/blog/optimising-dotnet-docker-images/
+
+
+Nixos building of containers  
+https://nix.dev/tutorials/nixos/building-and-running-docker-images.html
+
+https://klotzandrew.com/blog/smallest-golang-docker-image
+
 ## Odata
 
 https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/query-options?tabs=net60
+

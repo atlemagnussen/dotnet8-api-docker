@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS base
+FROM mcr.microsoft.com/dotnet/runtime-deps:8.0-alpine AS base
 USER app
 WORKDIR /app
 
@@ -12,14 +12,11 @@ WORKDIR "/src/TestWebApiNet8Docker"
 RUN dotnet build "./TestWebApiNet8Docker.csproj" -c Release -o /app/build
 
 FROM build AS publish
-##RUN dotnet publish Ditto/Ditto.csproj --runtime linux-musl-x64 -c $BUILDCONFIG -o out /p:Version=$VERSION -p:PublishTrimmed=true
-
-RUN dotnet publish "./TestWebApiNet8Docker.csproj" -c Release --self-contained true -o /app/publish
+RUN dotnet publish ./TestWebApiNet8Docker.csproj --runtime linux-musl-x64 -c Release -o /app/publish -p:PublishTrimmed=true
 
 EXPOSE 8080
 EXPOSE 8081
 
-#docker pull mcr.microsoft.com/dotnet/runtime-deps:8.0-alpine
 
 FROM base AS final
 WORKDIR /app

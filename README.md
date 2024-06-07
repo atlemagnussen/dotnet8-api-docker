@@ -26,6 +26,8 @@ az acr build --registry digilean --image dotnet8-api .
 
 ## optimizing container sizes
 
+https://learn.microsoft.com/en-us/dotnet/core/deploying/trimming/trim-self-contained
+
 Shrinking dotnet container  
 https://benfoster.io/blog/optimising-dotnet-docker-images/
 

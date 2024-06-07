@@ -7,8 +7,7 @@ https://gist.github.com/Athou/022c67de48f1cf6584ce6c194af71a09
 ## run and build
 
 docker build -t test-net8-api .
-docker build -f Dockerfile-Api --label digilean-api --tag digilean-api:1.0 .
-docker build -f Dockerfile-Server --label digilean-server --tag digilean-server:1.0 .
+docker build -f Dockerfile-alpine --label test-net8-api --tag test-net8-api:1.0-alpine .
 
 docker run -p 8080:8080 test-net8-api
 

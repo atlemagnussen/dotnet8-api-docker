@@ -5,7 +5,9 @@ VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWebApiNet8Docker", "TestWebApiNet8Docker\TestWebApiNet8Docker.csproj", "{DCE762FB-C2BC-4566-9C89-64C63F5FBEDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsoleAppDocker", "TestConsoleAppDocker\TestConsoleAppDocker.csproj", "{6567B174-B118-4C6B-B257-CBD12B75090D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsoleAppDocker", "TestConsoleAppDocker\TestConsoleAppDocker.csproj", "{6567B174-B118-4C6B-B257-CBD12B75090D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWorkerService", "TestWorkerService\TestWorkerService.csproj", "{5EB15C4F-3993-4F6B-910B-E120E464C74C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6567B174-B118-4C6B-B257-CBD12B75090D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6567B174-B118-4C6B-B257-CBD12B75090D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6567B174-B118-4C6B-B257-CBD12B75090D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EB15C4F-3993-4F6B-910B-E120E464C74C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EB15C4F-3993-4F6B-910B-E120E464C74C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EB15C4F-3993-4F6B-910B-E120E464C74C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EB15C4F-3993-4F6B-910B-E120E464C74C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

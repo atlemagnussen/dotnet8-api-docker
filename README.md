@@ -12,7 +12,7 @@ docker build -f Dockerfile-alpine --label test-net8-api --tag test-net8-api:1.0-
 docker build -f Dockerfile-self-trim --label test-net8-api --tag test-net8-api:1.0-self .
 
 docker run -p 8080:8080 test-net8-api
-docker run -d --rm -p 8080:8080 test-net8-api:1.0-self
+docker run -d --rm -p 8080:8080 --name test-net8-api test-net8-api:1.0-self
 
 
 docker build -f Dockerfile-worker -t test-net8-worker --label test-net8-worker --tag test-net8-worker:1.0 .

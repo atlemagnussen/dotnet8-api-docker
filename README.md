@@ -7,26 +7,34 @@ https://gist.github.com/Athou/022c67de48f1cf6584ce6c194af71a09
 ## run and build
 
 ### api
-docker build -f Dockerfile-api -t test-net8-api .
-docker build -f Dockerfile-alpine --label test-net8-api --tag test-net8-api:1.0-alpine .
-docker build -f Dockerfile-self-trim --label test-net8-api --tag test-net8-api:1.0-self .
+
+```sh
+docker build -f Dockerfile-api -t test-net8-api . #225MB
+docker build -f Dockerfile-alpine --label test-net8-api --tag test-net8-api:1.0-alpine . # 220MB
+docker build -f Dockerfile-self-trim --label test-net8-api --tag test-net8-api:1.0-self . # 123MB
 
 docker run -p 8080:8080 test-net8-api
 docker run -d --rm -p 8080:8080 --name test-net8-api test-net8-api:1.0-self
 
 
 docker build -f Dockerfile-worker -t test-net8-worker --label test-net8-worker --tag test-net8-worker:1.0 .
+```
+
 
 ## cli
-
-docker exec -it <mycontainer> bash
+```sh
+docker exec -it test-net8-api bash
+```
 
 ## Azure
 
+```sh
 az login --use-device-code
 az acr login --name
 
 az acr build --registry digilean --image dotnet8-api .
+```
+
 
 ## optimizing container sizes
 

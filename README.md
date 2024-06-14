@@ -9,7 +9,7 @@ https://gist.github.com/Athou/022c67de48f1cf6584ce6c194af71a09
 ### api
 
 ```sh
-docker build -f Dockerfile-api -t test-net8-api . #225MB
+docker build -f Dockerfile-api -t test-net8-api --tag test-net8-api:otlp . #225MB
 docker build -f Dockerfile-alpine --label test-net8-api --tag test-net8-api:alpine . # 220MB
 docker build -f Dockerfile-self-trim --label test-net8-api --tag test-net8-api:self . # 123MB
 

@@ -10,11 +10,11 @@ https://gist.github.com/Athou/022c67de48f1cf6584ce6c194af71a09
 
 ```sh
 docker build -f Dockerfile-api -t test-net8-api . #225MB
-docker build -f Dockerfile-alpine --label test-net8-api --tag test-net8-api:1.0-alpine . # 220MB
-docker build -f Dockerfile-self-trim --label test-net8-api --tag test-net8-api:1.0-self . # 123MB
+docker build -f Dockerfile-alpine --label test-net8-api --tag test-net8-api:alpine . # 220MB
+docker build -f Dockerfile-self-trim --label test-net8-api --tag test-net8-api:self . # 123MB
 
 docker run -p 8080:8080 test-net8-api
-docker run -d --rm -p 8080:8080 --name test-net8-api test-net8-api:1.0-self
+docker run -d --rm -p 8080:8080 --name test-net8-api test-net8-api:self
 
 
 docker build -f Dockerfile-worker -t test-net8-worker --label test-net8-worker --tag test-net8-worker:1.0 .

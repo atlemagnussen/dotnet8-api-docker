@@ -53,3 +53,9 @@ https://klotzandrew.com/blog/smallest-golang-docker-image
 
 https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/query-options?tabs=net60
 
+## .NET Aspire dashboard
+
+docker pull mcr.microsoft.com/dotnet/aspire-dashboard:8.0
+
+docker run --rm -p 18888:18888 -p 4317:18889 -d --name aspire-dashboard-atle \
+mcr.microsoft.com/dotnet/aspire-dashboard:8.0

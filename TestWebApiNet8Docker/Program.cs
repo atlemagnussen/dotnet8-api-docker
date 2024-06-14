@@ -6,6 +6,7 @@ using OpenTelemetry.Logs;
 using OpenTelemetry.Metrics;
 //using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
+using OpenTelemetry.Resources;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,7 @@ builder.Logging.AddOpenTelemetry(otel => {
 });
 
 builder.Services.AddOpenTelemetry()
+    .ConfigureResource(x => x.AddService(serviceName: "TestNet8Api"))
     .WithMetrics(x => {
         x.AddRuntimeInstrumentation()
             .AddMeter("Microsoft.AspNetCore.Hosting", 

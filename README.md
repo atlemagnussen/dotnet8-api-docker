@@ -9,7 +9,7 @@ https://gist.github.com/Athou/022c67de48f1cf6584ce6c194af71a09
 ### api
 
 ```sh
-docker build -f Dockerfile-api -t test-net8-api --tag test-net8-api:otlp . #225MB
+docker build -f Dockerfile-api -t test-net8-web -t test-net8-web:1.0 . #225MB
 docker build -f Dockerfile-alpine --label test-net8-api --tag test-net8-api:alpine . # 220MB
 docker build -f Dockerfile-self-trim --label test-net8-api --tag test-net8-api:self . # 123MB - doesn't always work
 
@@ -32,7 +32,7 @@ docker exec -it test-net8-api bash
 az login --use-device-code
 az acr login --name
 
-az acr build --registry digilean --image dotnet8-api .
+az acr build --registry [registry] --image dotnet8-api .
 ```
 
 
@@ -62,8 +62,22 @@ mcr.microsoft.com/dotnet/aspire-dashboard:8.0
 
 docker run --rm -it -p 18888:18888 -p 4317:18889 -d --name aspire-dashboard \
     -e DASHBOARD__OTLP__AUTHMODE='ApiKey' \
-    -e DASHBOARD__OTLP__PRIMARYAPIKEY='{MY_APIKEY}' \
+    -e DASHBOARD__OTLP__PRIMARYAPIKEY='mykey123456789' \
     mcr.microsoft.com/dotnet/aspire-dashboard:8.0.0
+
+## create network
+docker network create net8Network
+docker network connect net8Network aspire-dashboard
+
+## run web exporting to otlp
+
+docker run --rm -p 8080:8080 -d --name test-net8-web1 \
+    -e OTEL_EXPORTER_OTLP_METRICS_PROTOCOL='http/protobuf' \
+    -e OTEL_EXPORTER_OTLP_ENDPOINT='http://172.18.0.2:4317/' \
+    -e OTEL_EXPORTER_OTLP_HEADERS='x-otlp-api-key=mykey123456789' \
+test-net8-web:latest
+
+docker network connect net8Network test-net8-web1
 
 # Resilience handling
 https://devblogs.microsoft.com/dotnet/building-resilient-cloud-services-with-dotnet-8/

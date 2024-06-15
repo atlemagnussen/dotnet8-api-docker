@@ -9,6 +9,7 @@ using OpenTelemetry.Trace;
 using OpenTelemetry.Resources;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using TestNet8.WebApi.Metrix;
+using OpenTelemetry.Exporter;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +25,9 @@ if (builder.Environment.IsDevelopment())
     appName = $"{appName}-Debug";
 
 builder.Services.AddOpenTelemetry()
-    .ConfigureResource(x => x.AddService(serviceName: appName))
+    .ConfigureResource(x => {
+        x.AddService(serviceName: appName);
+    })
     .WithMetrics(x => {
         x.AddRuntimeInstrumentation()
             .AddMeter("Microsoft.AspNetCore.Hosting", 
@@ -40,7 +43,15 @@ builder.Services.AddOpenTelemetry()
             .AddHttpClientInstrumentation();
     });
 
-builder.Services.Configure<OpenTelemetryLoggerOptions>(logging => logging.AddOtlpExporter());
+Uri? defaultOtlpEndpoint = null;
+OtlpExportProtocol? defaultOtlpProtocol = null;
+string? headers = null;
+
+builder.Services.Configure<OpenTelemetryLoggerOptions>(logging => logging.AddOtlpExporter(otlp => {
+    defaultOtlpEndpoint = otlp.Endpoint;
+    defaultOtlpProtocol = otlp.Protocol;
+    headers = otlp.Headers; 
+}));
 builder.Services.ConfigureOpenTelemetryMeterProvider(metrics => metrics.AddOtlpExporter());
 builder.Services.ConfigureOpenTelemetryTracerProvider(tracing => tracing.AddOtlpExporter());
 
@@ -66,6 +77,16 @@ builder.Services.AddSingleton<WeatherMetrics>();
 builder.Services.AddTransient<ODataQueryService>();
 
 var app = builder.Build();
+
+var logger = app.Services.GetService<ILogger<Program>>();
+
+logger.LogInformation($"default Otlp Endpoint={defaultOtlpEndpoint}, Protocol={defaultOtlpProtocol}, headers={headers}");
+
+var otlpExporter = builder.Configuration.GetValue<string>("OTEL_EXPORTER_OTLP_ENDPOINT");
+if (otlpExporter is not null)
+    logger.LogInformation($"OTEL_EXPORTER_OTLP_ENDPOINT={otlpExporter}");
+else
+    logger.LogWarning("OTEL_EXPORTER_OTLP_ENDPOINT was null");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

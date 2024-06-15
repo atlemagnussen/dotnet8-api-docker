@@ -59,3 +59,11 @@ docker pull mcr.microsoft.com/dotnet/aspire-dashboard:8.0
 
 docker run --rm -p 18888:18888 -p 4317:18889 -d --name aspire-dashboard-atle \
 mcr.microsoft.com/dotnet/aspire-dashboard:8.0
+
+docker run --rm -it -p 18888:18888 -p 4317:18889 -d --name aspire-dashboard \
+    -e DASHBOARD__OTLP__AUTHMODE='ApiKey' \
+    -e DASHBOARD__OTLP__PRIMARYAPIKEY='{MY_APIKEY}' \
+    mcr.microsoft.com/dotnet/aspire-dashboard:8.0.0
+
+# Resilience handling
+https://devblogs.microsoft.com/dotnet/building-resilient-cloud-services-with-dotnet-8/

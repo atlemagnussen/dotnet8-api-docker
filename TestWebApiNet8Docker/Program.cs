@@ -17,8 +17,12 @@ builder.Logging.AddOpenTelemetry(otel => {
     otel.IncludeScopes = true;
 });
 
+string appName = "TestNet8Api";
+if (builder.Environment.IsDevelopment())
+    appName = $"{appName}-Debug";
+
 builder.Services.AddOpenTelemetry()
-    .ConfigureResource(x => x.AddService(serviceName: "TestNet8Api"))
+    .ConfigureResource(x => x.AddService(serviceName: appName))
     .WithMetrics(x => {
         x.AddRuntimeInstrumentation()
             .AddMeter("Microsoft.AspNetCore.Hosting", 

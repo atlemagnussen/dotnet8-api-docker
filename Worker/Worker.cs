@@ -1,4 +1,4 @@
-namespace TestWorkerService
+namespace TestNet8.Worker
 {
     public class Worker : BackgroundService
     {

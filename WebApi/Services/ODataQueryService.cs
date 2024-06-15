@@ -1,14 +1,8 @@
 ﻿using Microsoft.AspNetCore.OData.Query;
+using TestNet8.Model;
 
-namespace TestWebApiNet8Docker.Services
+namespace TestNet8.WebApi.Services
 {
-    public record Student
-    {
-        public int Id { get; set; }
-        public string Name { get; set; } = "";
-        public int Score { get; set; }
-    }
-
     public class ODataQueryService
     {
         private List<Student> students = new()

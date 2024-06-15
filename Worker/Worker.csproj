@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>dotnet-TestWorkerService-26f56d0b-a6fb-4996-9f9d-ecfb903e6889</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <RootNamespace>TestNet8.Worker</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
-using TestWebApiNet8Docker.Services;
+using TestNet8.WebApi.Services;
+using TestNet8.Model;
 
-namespace TestWebApiNet8Docker.Controllers
+namespace TestNet8.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using TestWebApiNet8Docker.Metrix;
+using TestNet8.Model;
+using TestNet8.WebApi.Metrix;
 
-namespace TestWebApiNet8Docker.Controllers
+namespace TestNet8.WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]

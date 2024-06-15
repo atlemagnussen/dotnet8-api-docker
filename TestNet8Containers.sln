@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWebApiNet8Docker", "TestWebApiNet8Docker\TestWebApiNet8Docker.csproj", "{DCE762FB-C2BC-4566-9C89-64C63F5FBEDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi\WebApi.csproj", "{DCE762FB-C2BC-4566-9C89-64C63F5FBEDF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsoleAppDocker", "TestConsoleAppDocker\TestConsoleAppDocker.csproj", "{6567B174-B118-4C6B-B257-CBD12B75090D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{6567B174-B118-4C6B-B257-CBD12B75090D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWorkerService", "TestWorkerService\TestWorkerService.csproj", "{5EB15C4F-3993-4F6B-910B-E120E464C74C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Worker", "Worker\Worker.csproj", "{5EB15C4F-3993-4F6B-910B-E120E464C74C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{04E678DB-5652-4575-BE7F-D884EBFC3F75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{5EB15C4F-3993-4F6B-910B-E120E464C74C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EB15C4F-3993-4F6B-910B-E120E464C74C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EB15C4F-3993-4F6B-910B-E120E464C74C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04E678DB-5652-4575-BE7F-D884EBFC3F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04E678DB-5652-4575-BE7F-D884EBFC3F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04E678DB-5652-4575-BE7F-D884EBFC3F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04E678DB-5652-4575-BE7F-D884EBFC3F75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

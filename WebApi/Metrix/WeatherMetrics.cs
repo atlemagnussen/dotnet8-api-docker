@@ -1,6 +1,6 @@
 using System.Diagnostics.Metrics;
 
-namespace TestWebApiNet8Docker.Metrix;
+namespace TestNet8.WebApi.Metrix;
 
 public class WeatherMetrics
 {

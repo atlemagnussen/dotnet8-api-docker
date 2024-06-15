@@ -1,0 +1,6 @@
+@TestNet8.WebApi_HostAddress = http://localhost:5084
+
+GET {{TestNet8.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.OData;
-using TestWebApiNet8Docker.Services;
+using TestNet8.WebApi.Services;
 //using OpenTelemetry.Exporter;
 using OpenTelemetry.Instrumentation.AspNetCore;
 using OpenTelemetry.Logs;
@@ -8,7 +8,7 @@ using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
 using OpenTelemetry.Resources;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
-using TestWebApiNet8Docker.Metrix;
+using TestNet8.WebApi.Metrix;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,7 +30,7 @@ builder.Services.AddOpenTelemetry()
             .AddMeter("Microsoft.AspNetCore.Hosting", 
                     "Microsoft.AspNetCore.Server.Kestrel",
                     "System.Net.Http",
-                    "TestWebApiNet8Docker.Controllers");
+                    "TestNet8.Controllers");
     })
     .WithTracing(x => {
         if (builder.Environment.IsDevelopment()) {

@@ -1,4 +1,4 @@
-namespace TestWebApiNet8Docker
+namespace TestNet8.Model
 {
     public class WeatherForecast
     {

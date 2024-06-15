@@ -1,6 +1,0 @@
-@TestWebApiNet8Docker_HostAddress = http://localhost:5084
-
-GET {{TestWebApiNet8Docker_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

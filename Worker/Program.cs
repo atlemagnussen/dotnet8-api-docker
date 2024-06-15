@@ -1,4 +1,4 @@
-using TestWorkerService;
+using TestNet8.Worker;
 
 var builder = Host.CreateApplicationBuilder(args);
 builder.Services.AddHostedService<Worker>();

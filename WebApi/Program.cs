@@ -44,12 +44,15 @@ builder.Services.AddOpenTelemetry()
     });
 
 Uri? defaultOtlpEndpoint = null;
-OtlpExportProtocol? defaultOtlpProtocol = null;
+OtlpExportProtocol defaultOtlpProtocol = OtlpExportProtocol.HttpProtobuf;
 string? headers = null;
+int defaultTimeout = 1000;
 
 builder.Services.Configure<OpenTelemetryLoggerOptions>(logging => logging.AddOtlpExporter(otlp => {
     defaultOtlpEndpoint = otlp.Endpoint;
-    defaultOtlpProtocol = otlp.Protocol;
+    defaultOtlpProtocol = otlp.Protocol; // = OtlpExportProtocol.HttpProtobuf || OtlpExportProtocol.Grpc;
+    otlp.TimeoutMilliseconds = defaultTimeout;
+    //otlp.BatchExportProcessorOptions.
     headers = otlp.Headers; 
 }));
 builder.Services.ConfigureOpenTelemetryMeterProvider(metrics => metrics.AddOtlpExporter());
@@ -80,7 +83,7 @@ var app = builder.Build();
 
 var logger = app.Services.GetService<ILogger<Program>>();
 
-logger.LogInformation($"default Otlp Endpoint={defaultOtlpEndpoint}, Protocol={defaultOtlpProtocol}, headers={headers}");
+logger.LogInformation($"default Otlp Endpoint={defaultOtlpEndpoint}, Protocol={defaultOtlpProtocol}, Timeout={defaultTimeout}, Headers={headers}");
 
 var otlpExporter = builder.Configuration.GetValue<string>("OTEL_EXPORTER_OTLP_ENDPOINT");
 if (otlpExporter is not null)

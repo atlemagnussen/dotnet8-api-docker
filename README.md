@@ -23,8 +23,11 @@ docker build -f Dockerfile-worker -t test-net8-worker --label test-net8-worker -
 
 ## cli
 ```sh
-docker exec -it test-net8-api bash
+docker exec -it test-net8-web1 bash
 ```
+
+echo "{ \"LogDirectory\": \".\", \"FileSize\": 32768, \"LogLevel\": \"Warning\" }" > OTEL_DIAGNOSTICS.json
+
 
 ## Azure
 
@@ -57,7 +60,7 @@ https://learn.microsoft.com/en-us/odata/webapi-8/fundamentals/query-options?tabs
 
 docker pull mcr.microsoft.com/dotnet/aspire-dashboard:8.0
 
-docker run --rm -p 18888:18888 -p 4317:18889 -d --name aspire-dashboard-atle \
+docker run --rm -p 18888:18888 -p 4317:18889 -d --name aspire-dashboard \
 mcr.microsoft.com/dotnet/aspire-dashboard:8.0
 
 docker run --rm -it -p 18888:18888 -p 4317:18889 -d --name aspire-dashboard \
@@ -66,15 +69,15 @@ docker run --rm -it -p 18888:18888 -p 4317:18889 -d --name aspire-dashboard \
     mcr.microsoft.com/dotnet/aspire-dashboard:8.0.0
 
 ## create network
-docker network create net8Network
+#docker network create net8Network
 docker network connect net8Network aspire-dashboard
 
 ## run web exporting to otlp
+#-e OTEL_EXPORTER_OTLP_METRICS_PROTOCOL='httpProtobuf' \
 
 docker run --rm -p 8080:8080 -d --name test-net8-web1 \
-    -e OTEL_EXPORTER_OTLP_METRICS_PROTOCOL='http/protobuf' \
-    -e OTEL_EXPORTER_OTLP_ENDPOINT='http://172.18.0.2:4317/' \
     -e OTEL_EXPORTER_OTLP_HEADERS='x-otlp-api-key=mykey123456789' \
+    -e OTEL_EXPORTER_OTLP_ENDPOINT='http://172.18.0.2:4317/' \
 test-net8-web:latest
 
 docker network connect net8Network test-net8-web1

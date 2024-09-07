@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: test-net8
-        image: test-net8-web:latest
+        image: atlmag/test-net8-web:latest
         ports:
         - containerPort: 8080
         resources:

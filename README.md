@@ -9,13 +9,15 @@ https://gist.github.com/Athou/022c67de48f1cf6584ce6c194af71a09
 ### api
 
 ```sh
-docker build -f Dockerfile-api -t test-net8-web -t test-net8-web:1.0 . #225MB
+docker build -f Dockerfile-api -t atlmag/test-net8-web . #225MB
 docker build -f Dockerfile-alpine --label test-net8-api --tag test-net8-api:alpine . # 220MB
 docker build -f Dockerfile-self-trim --label test-net8-api --tag test-net8-api:self . # 123MB - doesn't always work
 
 docker run -p 8080:8080 test-net8-api
 docker run -d --rm -p 8080:8080 --name test-net8-api test-net8-api:self
 
+docker login -u atlmag
+docker push atlmag/test-net8-web:latest.
 
 docker build -f Dockerfile-worker -t test-net8-worker --label test-net8-worker --tag test-net8-worker:1.0 .
 ```

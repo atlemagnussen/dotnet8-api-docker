@@ -19,7 +19,7 @@ docker run -d --rm -p 8080:8080 --name test-net8-api test-net8-api:self
 docker login -u atlmag
 docker push atlmag/test-net8-web:latest.
 
-docker build -f Dockerfile-worker -t test-net8-worker --label test-net8-worker --tag test-net8-worker:1.0 .
+docker build -f Dockerfile-worker -t atlmag/test-net8-worker .
 ```
 
 

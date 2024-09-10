@@ -7,17 +7,17 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 # ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
-COPY TestWorkerService ./TestWorkerService
+COPY Worker ./Worker
 
-RUN dotnet restore "./TestWorkerService/TestWorkerService.csproj"
+RUN dotnet restore "./Worker/Worker.csproj"
 
-WORKDIR "/src/TestWorkerService"
-RUN dotnet build "./TestWorkerService.csproj" -c Release -o /app/build
+WORKDIR "/src/Worker"
+RUN dotnet build "./Worker.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "./TestWorkerService.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./Worker.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "TestWorkerService.dll"]
+ENTRYPOINT ["dotnet", "Worker.dll"]
